@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { saveSimulation } from "../services/api";
 
 const SimulationPage = () => {
     
@@ -41,6 +42,39 @@ const SimulationPage = () => {
             totalCost: totalCost.toFixed(2),
             months
         });
+        
+        const amortization = [];
+        let remaining = principal;
+
+        for (let month = 1; month <= months ; month ++){
+            const intrestPayment = remaining * monthlyRate;
+            const principalPayment = monthlyPayment - intrestPayment;
+            remaining -= principalPayment;
+            amortization.push({
+                month,
+                intrest : intrestPayment.toFixed(2),
+                principal: principalPayment.toFixed(2),
+                balance: Math.abs(remaining).toFixed(2)
+            });
+        }
+
+        setResult({
+            monthlyPayment : monthlyPayment.toFixed(2),
+            totalCost : totalCost.toFixed(2),
+            months,
+            amortization
+        }); 
+        saveSimulation({
+          ...form, 
+          result: {
+            monthlyPayment: monthlyPayment.toFixed(2),
+            totalCost: totalCost.toFixed(2),
+            months,
+            amortization
+          },
+          createdAt: new Date().toISOString()
+        });
+
     };
 
     return (
@@ -48,10 +82,10 @@ const SimulationPage = () => {
             <h1>Credit simulation</h1>
             <form onSubmit={handleSubmit}>
                 <select
-                    name = ""
+                    name = "type"
                     value={form.type}
                     onChange={handleChange}
-                    requirep
+                    required
                 >
                     <option value="">Select credit</option>
                     <option value="auto">Auto</option>
@@ -106,8 +140,42 @@ const SimulationPage = () => {
                     <p>Monthly Cost{result.monthlyPayment}</p>
                     <p>Total Cost:{result.totalCost}</p>
                     <p>Duration{result.months}</p>
+
+                    <h3>Amortization Table</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Intrest</th>
+                                <th>Principal</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {result.amortization.map((row) => (
+                                <tr key={row.month}>
+                                    <td>{row.month}</td>
+                                    <td>{row.intrest}</td>
+                                    <td>{row.principal}</td>
+                                    <td>{row.balance}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             )}
+            {result && (
+  <button
+    style={{ marginTop: "10px" }}
+    onClick={() => {
+      // Navigate to /request or open a request form modal
+      // Pass simulation result data to the request page (via context or state)
+    }}
+  >
+    Submit Credit Request
+  </button>
+)}
+
         </div>
     );
 };
