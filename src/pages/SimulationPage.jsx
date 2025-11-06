@@ -30,7 +30,7 @@ const SimulationPage = () => {
         // loan formula for fixed rate loans
         // M = P * r *( 1+ r)^n /((1 + r)^n - 1)
         let monthlyPayment = 0;
-        if (monthlyPayment > 0 && months > 0){
+        if (monthlyRate > 0 && months > 0) {
             monthlyPayment =
             (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
             (Math.pow(1 + monthlyRate, months) - 1);
@@ -47,12 +47,12 @@ const SimulationPage = () => {
         let remaining = principal;
 
         for (let month = 1; month <= months ; month ++){
-            const intrestPayment = remaining * monthlyRate;
-            const principalPayment = monthlyPayment - intrestPayment;
+            const interestPayment = remaining * monthlyRate;
+            const principalPayment = monthlyPayment - interestPayment;
             remaining -= principalPayment;
             amortization.push({
                 month,
-                intrest : intrestPayment.toFixed(2),
+                interest : interestPayment.toFixed(2),
                 principal: principalPayment.toFixed(2),
                 balance: Math.abs(remaining).toFixed(2)
             });
@@ -155,7 +155,7 @@ const SimulationPage = () => {
                             {result.amortization.map((row) => (
                                 <tr key={row.month}>
                                     <td>{row.month}</td>
-                                    <td>{row.intrest}</td>
+                                    <td>{row.interest}</td>
                                     <td>{row.principal}</td>
                                     <td>{row.balance}</td>
                                 </tr>
