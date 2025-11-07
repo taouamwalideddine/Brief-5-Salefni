@@ -4,6 +4,8 @@ const AdminDashboard = () => {
     const [applications, setApplications] = useState([]);
     const [filterStatus , setFilterStatus] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectApp, setSelectedApp] = useState(null);
+    const [simulation, setSimulation] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:4000/applications")
@@ -19,6 +21,21 @@ const AdminDashboard = () => {
                 : true)
         );
     });
+    const handleRowClick = app => {
+        setSelectedApp(app);
+        fetch(`http://localhost:4000/simulation/${app.simulationId}`)
+          .then(res => res.json())
+          .then(setSimulation);
+    };
+    const handleStatusChange = async (e) =>{
+        const newStatus = e.target.value;
+        await fetch(`http://localhost:4000/applications/${selectApp.id}`,{
+            method : "PATCH",
+            headers :{ "Content-Type" : "aaplication/json" },
+            body : JSON.stringify({ status : newStatus})
+        });
+        setSelectedApp({ ...selectApp, status : newStatus});
+    };
 
     return (
         <div>
@@ -34,6 +51,17 @@ const AdminDashboard = () => {
                 <input type="text" placeholder="Search by name" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}
                 />
             </div>
+            <tbody>
+                {filteredApplications.map(app => (
+                    <tr key= {app.id} onClick= {() => handleRowClick(app)} style={{ cursor : "pointer"}}>
+                        <tr>{app.fullName}</tr>
+                        <tr>{app.email}</tr>
+                        <tr>{app.status}</tr>
+                        <tr>{app.priority ? "YAS" : "NO"}</tr>
+                        <tr>{new Date(app.createdAt).toLocaleString()}</tr>
+                    </tr>
+                ))}
+            </tbody>
             <table border="1" cellPadding="5" cellSpacing="0" style={{ marginTop: "20px", width: "100%" }}>
                 <thead>
                   <tr>
@@ -56,6 +84,32 @@ const AdminDashboard = () => {
                   ))}
                 </tbody>
             </table>
+            {setSelectedApp && (
+                <div style={{marginTop : "32px", border : "1px solid #ccc", padding : "24px", background : "#fafafa"}}>
+                    <h2>Application Detail</h2>
+                    <p><strong>Name:</strong> {setSelectedApp.fullName}</p>
+                    <p><strong>Email:</strong> {setSelectedApp.email}</p>
+                    <p><strong>Status:</strong> 
+                    <select value = {selectApp.status} onChange = {handleStatusChange}>
+                        <option value="pending">Pending</option>
+                        <option value="accepted">Accepted</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    </p>
+                    {simulation && (
+                        <div>
+                            <h3>
+                                <ul>
+                                    <li>Amount: {simulation.amount}</li>
+                                    <li>Monthly Payment: {simulation.monthPayment}</li>
+                                    <li>Duration: {simulation.months}</li>
+                                    <li>Total Cost: {simulation.totalCost}</li>
+                                </ul>
+                            </h3>
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 };
