@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
 
 const AdminDashboard = () => {
     const [applications, setApplications] = useState([]);
     const [filterStatus , setFilterStatus] = useState("");
-    const [searchTerm, setSearchTerm] = useSTate("");
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:4000/applications")

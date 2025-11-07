@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SimulationPage from "./pages/SimulationPage"; 
+import AdminDashboard from "./pages/AdminDashboard";
+import RequestPage from "./pages/RequestPage";
 
 const App = () => {
   return (
@@ -10,6 +12,8 @@ const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<SimulationPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/request" element={<RequestPage />} />
       </Routes>
     </Router>
   );
