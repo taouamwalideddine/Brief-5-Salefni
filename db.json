@@ -1,27 +1,84 @@
 {
   "creditTypes": [
-    { "id": "auto", "label": "Crédit Auto", "defaultAnnualRate": 4.2, "defaultFees": 300, "defaultInsuranceRate": 0.2, "maxMonths": 84, "minAmount": 10000, "maxAmount": 400000 },
-    { "id": "conso", "label": "Crédit Consommation", "defaultAnnualRate": 6.8, "defaultFees": 150, "defaultInsuranceRate": 0.0, "maxMonths": 60, "minAmount": 1000, "maxAmount": 150000 },
-    { "id": "immo", "label": "Crédit Immobilier", "defaultAnnualRate": 4.0, "defaultFees": 1500, "defaultInsuranceRate": 0.25, "maxMonths": 360, "minAmount": 100000, "maxAmount": 3000000 }
+    {
+      "id": "auto",
+      "label": "Crédit Auto",
+      "defaultAnnualRate": 4.2,
+      "defaultFees": 300,
+      "defaultInsuranceRate": 0.2,
+      "maxMonths": 84,
+      "minAmount": 10000,
+      "maxAmount": 400000
+    },
+    {
+      "id": "conso",
+      "label": "Crédit Consommation",
+      "defaultAnnualRate": 6.8,
+      "defaultFees": 150,
+      "defaultInsuranceRate": 0,
+      "maxMonths": 60,
+      "minAmount": 1000,
+      "maxAmount": 150000
+    },
+    {
+      "id": "immo",
+      "label": "Crédit Immobilier",
+      "defaultAnnualRate": 4,
+      "defaultFees": 1500,
+      "defaultInsuranceRate": 0.25,
+      "maxMonths": 360,
+      "minAmount": 100000,
+      "maxAmount": 3000000
+    }
   ],
-
   "employmentTypes": [
-    { "id": "cdi", "label": "CDI" },
-    { "id": "cdd", "label": "CDD" },
-    { "id": "autoentrepreneur", "label": "Auto-entrepreneur" },
-    { "id": "fonctionnaire", "label": "Fonctionnaire" },
-    { "id": "etudiant", "label": "Étudiant" },
-    { "id": "retraite", "label": "Retraité" }
+    {
+      "id": "cdi",
+      "label": "CDI"
+    },
+    {
+      "id": "cdd",
+      "label": "CDD"
+    },
+    {
+      "id": "autoentrepreneur",
+      "label": "Auto-entrepreneur"
+    },
+    {
+      "id": "fonctionnaire",
+      "label": "Fonctionnaire"
+    },
+    {
+      "id": "etudiant",
+      "label": "Étudiant"
+    },
+    {
+      "id": "retraite",
+      "label": "Retraité"
+    }
   ],
-
   "jobs": [
-    { "id": "dev", "label": "Développeur" },
-    { "id": "enseignant", "label": "Enseignant" },
-    { "id": "comptable", "label": "Comptable" },
-    { "id": "agentco", "label": "Agent commercial" },
-    { "id": "chauffeur", "label": "Chauffeur" }
+    {
+      "id": "dev",
+      "label": "Développeur"
+    },
+    {
+      "id": "enseignant",
+      "label": "Enseignant"
+    },
+    {
+      "id": "comptable",
+      "label": "Comptable"
+    },
+    {
+      "id": "agentco",
+      "label": "Agent commercial"
+    },
+    {
+      "id": "chauffeur",
+      "label": "Chauffeur"
+    }
   ],
-
   "applications": [
     {
       "id": 1,
@@ -41,7 +98,6 @@
       "updatedAt": "2025-11-03T10:20:00Z"
     }
   ],
-
   "simulations": [
     {
       "id": 1,
@@ -52,17 +108,683 @@
       "fees": 300,
       "insuranceRate": 0.2,
       "monthlyPayment": 2715.43,
-      "totalCost": 130339.00,
+      "totalCost": 130339,
       "apr": 4.45,
       "amortization": [
-        { "month": 1, "interest": 420.00, "principal": 2295.43, "remaining": 117704.57 },
-        { "month": 2, "interest": 412.96, "principal": 2302.47, "remaining": 115402.10 },
-        { "month": 3, "interest": 405.91, "principal": 2309.52, "remaining": 113092.58 }
+        {
+          "month": 1,
+          "interest": 420,
+          "principal": 2295.43,
+          "remaining": 117704.57
+        },
+        {
+          "month": 2,
+          "interest": 412.96,
+          "principal": 2302.47,
+          "remaining": 115402.1
+        },
+        {
+          "month": 3,
+          "interest": 405.91,
+          "principal": 2309.52,
+          "remaining": 113092.58
+        }
       ],
       "createdAt": "2025-11-03T10:15:00Z"
+    },
+    {
+      "id": "629a",
+      "type": "realestate",
+      "amount": "61",
+      "duration": "89",
+      "rate": "10",
+      "fees": "54",
+      "insurance": "35",
+      "result": {
+        "monthlyPayment": "0.97",
+        "totalCost": "161.98",
+        "months": 89,
+        "amortization": [
+          {
+            "month": 1,
+            "interest": "0.51",
+            "principal": "0.47",
+            "balance": "60.53"
+          },
+          {
+            "month": 2,
+            "interest": "0.50",
+            "principal": "0.47",
+            "balance": "60.07"
+          },
+          {
+            "month": 3,
+            "interest": "0.50",
+            "principal": "0.47",
+            "balance": "59.59"
+          },
+          {
+            "month": 4,
+            "interest": "0.50",
+            "principal": "0.48",
+            "balance": "59.12"
+          },
+          {
+            "month": 5,
+            "interest": "0.49",
+            "principal": "0.48",
+            "balance": "58.64"
+          },
+          {
+            "month": 6,
+            "interest": "0.49",
+            "principal": "0.48",
+            "balance": "58.15"
+          },
+          {
+            "month": 7,
+            "interest": "0.48",
+            "principal": "0.49",
+            "balance": "57.66"
+          },
+          {
+            "month": 8,
+            "interest": "0.48",
+            "principal": "0.49",
+            "balance": "57.17"
+          },
+          {
+            "month": 9,
+            "interest": "0.48",
+            "principal": "0.50",
+            "balance": "56.67"
+          },
+          {
+            "month": 10,
+            "interest": "0.47",
+            "principal": "0.50",
+            "balance": "56.17"
+          },
+          {
+            "month": 11,
+            "interest": "0.47",
+            "principal": "0.51",
+            "balance": "55.67"
+          },
+          {
+            "month": 12,
+            "interest": "0.46",
+            "principal": "0.51",
+            "balance": "55.16"
+          },
+          {
+            "month": 13,
+            "interest": "0.46",
+            "principal": "0.51",
+            "balance": "54.64"
+          },
+          {
+            "month": 14,
+            "interest": "0.46",
+            "principal": "0.52",
+            "balance": "54.12"
+          },
+          {
+            "month": 15,
+            "interest": "0.45",
+            "principal": "0.52",
+            "balance": "53.60"
+          },
+          {
+            "month": 16,
+            "interest": "0.45",
+            "principal": "0.53",
+            "balance": "53.07"
+          },
+          {
+            "month": 17,
+            "interest": "0.44",
+            "principal": "0.53",
+            "balance": "52.54"
+          },
+          {
+            "month": 18,
+            "interest": "0.44",
+            "principal": "0.54",
+            "balance": "52.01"
+          },
+          {
+            "month": 19,
+            "interest": "0.43",
+            "principal": "0.54",
+            "balance": "51.47"
+          },
+          {
+            "month": 20,
+            "interest": "0.43",
+            "principal": "0.54",
+            "balance": "50.92"
+          },
+          {
+            "month": 21,
+            "interest": "0.42",
+            "principal": "0.55",
+            "balance": "50.37"
+          },
+          {
+            "month": 22,
+            "interest": "0.42",
+            "principal": "0.55",
+            "balance": "49.82"
+          },
+          {
+            "month": 23,
+            "interest": "0.42",
+            "principal": "0.56",
+            "balance": "49.26"
+          },
+          {
+            "month": 24,
+            "interest": "0.41",
+            "principal": "0.56",
+            "balance": "48.70"
+          },
+          {
+            "month": 25,
+            "interest": "0.41",
+            "principal": "0.57",
+            "balance": "48.13"
+          },
+          {
+            "month": 26,
+            "interest": "0.40",
+            "principal": "0.57",
+            "balance": "47.56"
+          },
+          {
+            "month": 27,
+            "interest": "0.40",
+            "principal": "0.58",
+            "balance": "46.98"
+          },
+          {
+            "month": 28,
+            "interest": "0.39",
+            "principal": "0.58",
+            "balance": "46.40"
+          },
+          {
+            "month": 29,
+            "interest": "0.39",
+            "principal": "0.59",
+            "balance": "45.81"
+          },
+          {
+            "month": 30,
+            "interest": "0.38",
+            "principal": "0.59",
+            "balance": "45.22"
+          },
+          {
+            "month": 31,
+            "interest": "0.38",
+            "principal": "0.60",
+            "balance": "44.63"
+          },
+          {
+            "month": 32,
+            "interest": "0.37",
+            "principal": "0.60",
+            "balance": "44.02"
+          },
+          {
+            "month": 33,
+            "interest": "0.37",
+            "principal": "0.61",
+            "balance": "43.42"
+          },
+          {
+            "month": 34,
+            "interest": "0.36",
+            "principal": "0.61",
+            "balance": "42.81"
+          },
+          {
+            "month": 35,
+            "interest": "0.36",
+            "principal": "0.62",
+            "balance": "42.19"
+          },
+          {
+            "month": 36,
+            "interest": "0.35",
+            "principal": "0.62",
+            "balance": "41.57"
+          },
+          {
+            "month": 37,
+            "interest": "0.35",
+            "principal": "0.63",
+            "balance": "40.94"
+          },
+          {
+            "month": 38,
+            "interest": "0.34",
+            "principal": "0.63",
+            "balance": "40.31"
+          },
+          {
+            "month": 39,
+            "interest": "0.34",
+            "principal": "0.64",
+            "balance": "39.67"
+          },
+          {
+            "month": 40,
+            "interest": "0.33",
+            "principal": "0.64",
+            "balance": "39.03"
+          },
+          {
+            "month": 41,
+            "interest": "0.33",
+            "principal": "0.65",
+            "balance": "38.38"
+          },
+          {
+            "month": 42,
+            "interest": "0.32",
+            "principal": "0.65",
+            "balance": "37.73"
+          },
+          {
+            "month": 43,
+            "interest": "0.31",
+            "principal": "0.66",
+            "balance": "37.07"
+          },
+          {
+            "month": 44,
+            "interest": "0.31",
+            "principal": "0.66",
+            "balance": "36.40"
+          },
+          {
+            "month": 45,
+            "interest": "0.30",
+            "principal": "0.67",
+            "balance": "35.73"
+          },
+          {
+            "month": 46,
+            "interest": "0.30",
+            "principal": "0.68",
+            "balance": "35.06"
+          },
+          {
+            "month": 47,
+            "interest": "0.29",
+            "principal": "0.68",
+            "balance": "34.38"
+          },
+          {
+            "month": 48,
+            "interest": "0.29",
+            "principal": "0.69",
+            "balance": "33.69"
+          },
+          {
+            "month": 49,
+            "interest": "0.28",
+            "principal": "0.69",
+            "balance": "33.00"
+          },
+          {
+            "month": 50,
+            "interest": "0.27",
+            "principal": "0.70",
+            "balance": "32.30"
+          },
+          {
+            "month": 51,
+            "interest": "0.27",
+            "principal": "0.70",
+            "balance": "31.59"
+          },
+          {
+            "month": 52,
+            "interest": "0.26",
+            "principal": "0.71",
+            "balance": "30.88"
+          },
+          {
+            "month": 53,
+            "interest": "0.26",
+            "principal": "0.72",
+            "balance": "30.17"
+          },
+          {
+            "month": 54,
+            "interest": "0.25",
+            "principal": "0.72",
+            "balance": "29.45"
+          },
+          {
+            "month": 55,
+            "interest": "0.25",
+            "principal": "0.73",
+            "balance": "28.72"
+          },
+          {
+            "month": 56,
+            "interest": "0.24",
+            "principal": "0.73",
+            "balance": "27.98"
+          },
+          {
+            "month": 57,
+            "interest": "0.23",
+            "principal": "0.74",
+            "balance": "27.24"
+          },
+          {
+            "month": 58,
+            "interest": "0.23",
+            "principal": "0.75",
+            "balance": "26.50"
+          },
+          {
+            "month": 59,
+            "interest": "0.22",
+            "principal": "0.75",
+            "balance": "25.74"
+          },
+          {
+            "month": 60,
+            "interest": "0.21",
+            "principal": "0.76",
+            "balance": "24.99"
+          },
+          {
+            "month": 61,
+            "interest": "0.21",
+            "principal": "0.77",
+            "balance": "24.22"
+          },
+          {
+            "month": 62,
+            "interest": "0.20",
+            "principal": "0.77",
+            "balance": "23.45"
+          },
+          {
+            "month": 63,
+            "interest": "0.20",
+            "principal": "0.78",
+            "balance": "22.67"
+          },
+          {
+            "month": 64,
+            "interest": "0.19",
+            "principal": "0.78",
+            "balance": "21.89"
+          },
+          {
+            "month": 65,
+            "interest": "0.18",
+            "principal": "0.79",
+            "balance": "21.09"
+          },
+          {
+            "month": 66,
+            "interest": "0.18",
+            "principal": "0.80",
+            "balance": "20.30"
+          },
+          {
+            "month": 67,
+            "interest": "0.17",
+            "principal": "0.80",
+            "balance": "19.49"
+          },
+          {
+            "month": 68,
+            "interest": "0.16",
+            "principal": "0.81",
+            "balance": "18.68"
+          },
+          {
+            "month": 69,
+            "interest": "0.16",
+            "principal": "0.82",
+            "balance": "17.86"
+          },
+          {
+            "month": 70,
+            "interest": "0.15",
+            "principal": "0.82",
+            "balance": "17.04"
+          },
+          {
+            "month": 71,
+            "interest": "0.14",
+            "principal": "0.83",
+            "balance": "16.21"
+          },
+          {
+            "month": 72,
+            "interest": "0.14",
+            "principal": "0.84",
+            "balance": "15.37"
+          },
+          {
+            "month": 73,
+            "interest": "0.13",
+            "principal": "0.85",
+            "balance": "14.52"
+          },
+          {
+            "month": 74,
+            "interest": "0.12",
+            "principal": "0.85",
+            "balance": "13.67"
+          },
+          {
+            "month": 75,
+            "interest": "0.11",
+            "principal": "0.86",
+            "balance": "12.81"
+          },
+          {
+            "month": 76,
+            "interest": "0.11",
+            "principal": "0.87",
+            "balance": "11.95"
+          },
+          {
+            "month": 77,
+            "interest": "0.10",
+            "principal": "0.87",
+            "balance": "11.07"
+          },
+          {
+            "month": 78,
+            "interest": "0.09",
+            "principal": "0.88",
+            "balance": "10.19"
+          },
+          {
+            "month": 79,
+            "interest": "0.08",
+            "principal": "0.89",
+            "balance": "9.30"
+          },
+          {
+            "month": 80,
+            "interest": "0.08",
+            "principal": "0.90",
+            "balance": "8.41"
+          },
+          {
+            "month": 81,
+            "interest": "0.07",
+            "principal": "0.90",
+            "balance": "7.50"
+          },
+          {
+            "month": 82,
+            "interest": "0.06",
+            "principal": "0.91",
+            "balance": "6.59"
+          },
+          {
+            "month": 83,
+            "interest": "0.05",
+            "principal": "0.92",
+            "balance": "5.67"
+          },
+          {
+            "month": 84,
+            "interest": "0.05",
+            "principal": "0.93",
+            "balance": "4.75"
+          },
+          {
+            "month": 85,
+            "interest": "0.04",
+            "principal": "0.93",
+            "balance": "3.81"
+          },
+          {
+            "month": 86,
+            "interest": "0.03",
+            "principal": "0.94",
+            "balance": "2.87"
+          },
+          {
+            "month": 87,
+            "interest": "0.02",
+            "principal": "0.95",
+            "balance": "1.92"
+          },
+          {
+            "month": 88,
+            "interest": "0.02",
+            "principal": "0.96",
+            "balance": "0.97"
+          },
+          {
+            "month": 89,
+            "interest": "0.01",
+            "principal": "0.97",
+            "balance": "0.00"
+          }
+        ]
+      },
+      "createdAt": "2025-11-07T08:09:04.433Z"
+    },
+    {
+      "id": "9f89",
+      "type": "auto",
+      "amount": "67",
+      "duration": "14",
+      "rate": "62",
+      "fees": "10",
+      "insurance": "14",
+      "result": {
+        "monthlyPayment": "6.84",
+        "totalCost": "115.15",
+        "months": 14,
+        "amortization": [
+          {
+            "month": 1,
+            "interest": "3.46",
+            "principal": "3.38",
+            "balance": "63.62"
+          },
+          {
+            "month": 2,
+            "interest": "3.29",
+            "principal": "3.55",
+            "balance": "60.07"
+          },
+          {
+            "month": 3,
+            "interest": "3.10",
+            "principal": "3.74",
+            "balance": "56.33"
+          },
+          {
+            "month": 4,
+            "interest": "2.91",
+            "principal": "3.93",
+            "balance": "52.40"
+          },
+          {
+            "month": 5,
+            "interest": "2.71",
+            "principal": "4.13",
+            "balance": "48.27"
+          },
+          {
+            "month": 6,
+            "interest": "2.49",
+            "principal": "4.35",
+            "balance": "43.92"
+          },
+          {
+            "month": 7,
+            "interest": "2.27",
+            "principal": "4.57",
+            "balance": "39.35"
+          },
+          {
+            "month": 8,
+            "interest": "2.03",
+            "principal": "4.81",
+            "balance": "34.54"
+          },
+          {
+            "month": 9,
+            "interest": "1.78",
+            "principal": "5.06",
+            "balance": "29.48"
+          },
+          {
+            "month": 10,
+            "interest": "1.52",
+            "principal": "5.32",
+            "balance": "24.16"
+          },
+          {
+            "month": 11,
+            "interest": "1.25",
+            "principal": "5.59",
+            "balance": "18.57"
+          },
+          {
+            "month": 12,
+            "interest": "0.96",
+            "principal": "5.88",
+            "balance": "12.69"
+          },
+          {
+            "month": 13,
+            "interest": "0.66",
+            "principal": "6.19",
+            "balance": "6.50"
+          },
+          {
+            "month": 14,
+            "interest": "0.34",
+            "principal": "6.50",
+            "balance": "0.00"
+          }
+        ]
+      },
+      "createdAt": "2025-11-07T08:43:54.714Z"
     }
   ],
-
   "notifications": [
     {
       "id": 1,
@@ -73,11 +795,13 @@
       "createdAt": "2025-11-03T10:20:05Z"
     }
   ],
-
   "admins": [
-    { "id": 1, "email": "admin@selefni.com", "password": "admin" }
+    {
+      "id": 1,
+      "email": "admin@selefni.com",
+      "password": "admin"
+    }
   ],
-
   "settings": {
     "currency": "MAD",
     "maxSimRowsPreview": 6,

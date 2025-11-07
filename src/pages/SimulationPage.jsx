@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { saveSimulation } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const SimulationPage = () => {
-    
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         type : "",
         amount : "",
@@ -12,6 +14,7 @@ const SimulationPage = () => {
         insurance : ""
     });
     const [ result, setResult] = useState(null);
+    const [ savedSimulationId, setSavedSimulationId] = useState(null);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value});
@@ -73,7 +76,7 @@ const SimulationPage = () => {
             amortization
           },
           createdAt: new Date().toISOString()
-        });
+        }).then(data => setSavedSimulationId(data.id));
 
     };
 
@@ -164,14 +167,8 @@ const SimulationPage = () => {
                     </table>
                 </div>
             )}
-            {result && (
-  <button
-    style={{ marginTop: "10px" }}
-    onClick={() => {
-      // Navigate to /request or open a request form modal
-      // Pass simulation result data to the request page (via context or state)
-    }}
-  >
+            {savedSimulationId && (
+  <button style={{ marginTop: "10px" }} onClick = {() => navigate(`/request?simulationId=${savedSimulationId}`)}>
     Submit Credit Request
   </button>
 )}
