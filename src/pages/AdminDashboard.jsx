@@ -6,6 +6,7 @@
         const [searchTerm, setSearchTerm] = useState("");
         const [selectApp, setSelectedApp] = useState(null);
         const [simulation, setSimulation] = useState(null);
+        const [note, setNote] = useState("");
 
         useEffect(() => {
             fetch("http://localhost:4000/applications")
@@ -96,6 +97,47 @@
         <option value="rejected">Rejected</option>
       </select>
     </p>
+    <p>
+        <label>
+            Priority :
+            <input type="check"
+            checked ={setSelectedApp.priority}
+            onChange={async (e) => {
+                const newPriority = e.target.checked;
+                await fetch(`http://localhost:4000/applications/${selectApp.id}`, {
+                    method : "PATCH",
+                    headers : { "Content-Type" : "application/json"},
+                    body: JSON.stringify({priority: newPriority}),
+                });
+                setSelectedApp({ ...selectApp, priority: newPriority});
+            }}
+            />
+        </label>
+    </p>
+    <p>
+        <label>Add Note:</label>
+        <textarea value={note} onChange={e => setNote(e.target.value)}></textarea>
+        <button
+        onClick={async() => {
+            if(!note.trim()) return;
+            const updatedNotes = [...selectApp.notes, {text : note, date: new Date().toISOString() }];
+            await fetch(`https://localhost:4000/applications/${selectApp.id}`, {
+                method : "PATCH",
+                headers : {"Content-Type": "application/json"},
+                body: JSON.stringify({notes : updatedNotes}),
+            });
+            setSelectedApp({ ...selectApp, notes : updatedNotes});
+            setNote("");
+        }}
+        >
+            Add Note
+        </button>
+    </p>
+    <ul>
+        {selectApp.notes && selectApp.notes.map((n,index) => (
+            <li key= {index}>{new Date(n.date.toLocaleString())}:{n.text}</li>
+        ))}
+    </ul>
     {simulation && (
       <div>
         <h3>
